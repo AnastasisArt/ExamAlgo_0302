@@ -10,7 +10,7 @@ public class Main {
         String nbSaisis = scanner.nextLine();
 
         List<String> tabNbStr = new ArrayList<>(List.of(nbSaisis.replace(" ", "").split(",")));
-        System.out.println(tabNbStr);
+        //System.out.println(tabNbStr);
 
         List<Integer> tabNbInt = new ArrayList<>();
         //Vérification si nombre + stockage dans nouveau tableau int
@@ -29,7 +29,28 @@ public class Main {
             }
         }
 
-        System.out.println(tabNbStr);
+        rangementNb(tabNbInt);
+        //System.out.println(tabNbStr);
         System.out.println(tabNbInt);
     }
+
+    //Tri bubble pour ranger dans l'ordre
+    public static void rangementNb(List<Integer> listeNb){
+        int taille = listeNb.size() - 1;
+        boolean echange;
+        do{
+            echange = false;
+            for(int i=0; i < taille; i++){
+                if(listeNb.get(i) > listeNb.get(i+1)) {
+                    int temp = listeNb.get(i);
+                    listeNb.set(i, listeNb.get(i+1));
+                    listeNb.set(i+1, temp);
+                    echange = true;
+                }
+            }
+            taille--;
+        }while(echange);
+    }
+
+
 }
