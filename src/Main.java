@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,35 +30,18 @@ public class Main {
             }
         }
 
-        rangementNb(tabNbInt);
-        //System.out.println(tabNbStr);
+        //Retrait du tri Bubble pour utilisation de la méthode sort()
+        Collections.sort(tabNbInt);
         System.out.println(tabNbInt);
 
         int nbManquant = trouverNbManquant(tabNbInt);
         System.out.println(nbManquant);
     }
 
-    //Tri bubble pour ranger dans l'ordre
-    public static void rangementNb(List<Integer> listeNb){
-        int taille = listeNb.size() - 1;
-        boolean echange;
-        do{
-            echange = false;
-            for(int i=0; i < taille; i++){
-                if(listeNb.get(i) > listeNb.get(i+1)) {
-                    int temp = listeNb.get(i);
-                    listeNb.set(i, listeNb.get(i+1));
-                    listeNb.set(i+1, temp);
-                    echange = true;
-                }
-            }
-            taille--;
-        }while(echange);
-    }
-
     //Recherche chiffre manquant
    public static int trouverNbManquant(List<Integer> listeNb){
-        for(int i=0; i < listeNb.size() - 1; i++){
+       int tailleTab = listeNb.size() - 1;
+        for(int i=0; i < tailleTab; i++){
             if(listeNb.get(i) + 1 != listeNb.get(i+1)) {
                 return listeNb.get(i) + 1;
             }
