@@ -32,6 +32,9 @@ public class Main {
         rangementNb(tabNbInt);
         //System.out.println(tabNbStr);
         System.out.println(tabNbInt);
+
+        int nbManquant = trouverNbManquant(tabNbInt);
+        System.out.println(nbManquant);
     }
 
     //Tri bubble pour ranger dans l'ordre
@@ -52,5 +55,14 @@ public class Main {
         }while(echange);
     }
 
+    //Recherche chiffre manquant
+   public static int trouverNbManquant(List<Integer> listeNb){
+        for(int i=0; i < listeNb.size() - 1; i++){
+            if(listeNb.get(i) + 1 != listeNb.get(i+1)) {
+                return listeNb.get(i) + 1;
+            }
+        }
+        return 0;
+   }
 
 }
