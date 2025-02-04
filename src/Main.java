@@ -35,7 +35,11 @@ public class Main {
         System.out.println(tabNbInt);
 
         int nbManquant = trouverNbManquant(tabNbInt);
-        System.out.println(nbManquant);
+        if(nbManquant != 0){
+            System.out.println("Nombre manquant : " + nbManquant);
+        }else{
+            System.out.println("Aucun nombre n'est manquant.");
+        }
     }
 
     //Recherche chiffre manquant
